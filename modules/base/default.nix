@@ -14,10 +14,7 @@
   nixpkgs.config.allowUnfree = true;
 
   # Networking
-  networking = {
-    #nameservers = [ "1.1.1.2" "1.0.0.2" ];
-    dhcpcd.extraConfig = "nohook resolv.conf";
-  };
+  networking.dhcpcd.extraConfig = "nohook resolv.conf";
 
   ## Remove fallbackDNS
   services.resolved.extraConfig =
@@ -28,7 +25,6 @@
   # Firewall
   networking.firewall = {
     enable = true;
-    allowPing = false;
   };
 
   # Firmware Updater
@@ -67,7 +63,7 @@
   # Configure Disko VM
   virtualisation.vmVariantWithDisko = {
     virtualisation = {
-      cores = 4;
+      cores = 8;
       memorySize = 8096;
       qemu.options = [ "-enable-kvm" "-vga virtio" "-display gtk,gl=on" ];
       writableStoreUseTmpfs = false;
@@ -81,29 +77,13 @@
         target = dirOf (builtins.head config.age.identityPaths);
       };
     };
-
-    # Add dummy cryptkey for VM
-    disko.devices.disk.cryptkey = {
-      type = "disk";
-      content.type = "gpt";
-
-      content.partitions.cryptkey = {
-        size = "4096";
-        label = "CRYPTKEY";
-
-        content = {
-          type = "filesystem";
-          format = "vfat";
-        };
-      };
-    };
   };
 
   # Garbage collection
   nix.gc = {
     automatic = true;
     dates = "weekly";
-    options = "--delete-older-than 14d";
+    options = "--delete-older-than 30d";
   };
 
   # Nix Settings
@@ -119,3 +99,4 @@
     experimental-features = "nix-command flakes";
   };
 }
+

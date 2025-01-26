@@ -1,6 +1,0 @@
-{
-  imports = [
-    ./stremio-server.nix
-  ];
-}
-

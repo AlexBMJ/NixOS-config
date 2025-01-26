@@ -16,25 +16,19 @@ in {
     ../../home-manager.nix
   ];
 
-  config = mkMerge [(mkIf cfg.enable {
+  config = mkIf cfg.enable {
     home-manager.extraSpecialArgs = {
       extraHyprConfig = cfg.extraConfig;
-      useImpermanence = config.impermanence.enable;
     };
     home-manager.users.${username} = {
       imports = [
         inputs.hyprland.homeManagerModules.default
         inputs.ags.homeManagerModules.default
-        inputs.walker.homeManagerModules.default
         ./home.nix
       ];
     };
 
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
-    environment.systemPackages = with pkgs; [
-      #hyprpolkitagent
-      #hyprsunset
-    ];
 
     # PAM
     security.pam.services.hyprlock = {};
@@ -76,15 +70,6 @@ in {
     # Pipewire
     configured.programs.pipewire.enable = true;
 
-    # Email Client
-    configured.programs.thunderbird.enable = true;
-    # Protonmail Bridge
-    systemd.user.services.protonmail-bridge.environment.PASSWORD_STORE_DIR = "/home/${username}/.local/share/password-store";
-    services.protonmail-bridge = {
-      enable = true;
-      path = [ pkgs.pass ];
-    };
-
     # NOTE: mkIf bluetooth?
     # Bluetooth
     hardware.bluetooth.enable = true;
@@ -124,16 +109,5 @@ in {
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       ];
     };
-  })
-  (mkIf config.impermanence.enable {
-    environment.persistence."/persist" = {
-      directories = [
-        "/etc/NetworkManager/system-connections"
-      ];
-      users.${username}.directories = [
-        ".gnupg"
-      ];
-    };
-  })];
+  };
 }
-

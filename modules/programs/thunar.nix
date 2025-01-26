@@ -1,4 +1,4 @@
-{ inputs, pkgs, lib, config, username, ... }:
+{ pkgs, lib, config, username, ... }:
 with lib;
 let
   module_name = "thunar";
@@ -44,3 +44,4 @@ in {
     };
   };
 }
+

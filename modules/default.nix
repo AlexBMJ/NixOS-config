@@ -1,9 +1,10 @@
 {
   imports = [
     ./base
+    ./programs
+    ./desktops
     ./filesystem
-    ./services
-    ./impermanence.nix
     ./home-manager.nix
   ];
 }
+
