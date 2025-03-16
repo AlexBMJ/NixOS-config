@@ -1,7 +1,7 @@
 { config, lib, ... }:
 {
-  boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "thunderbolt" "nvme" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [ "usb_storage" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
