@@ -8,7 +8,6 @@ in
   home.packages = with pkgs; [
     # Media players
     jellyfin-media-player
-    stremio
 
     swaybg    # Wallpaper Tool
 

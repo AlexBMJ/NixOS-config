@@ -88,7 +88,7 @@ in {
     programs.git = {
       enable = true;
       config = {
-        commit.gpgsign = true;
+        commit.gpgsign = false;
         core.autocrlf = "input";
       };
     };

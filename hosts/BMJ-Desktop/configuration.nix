@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
     ../../modules/disko/btrfs.nix
     ../../modules/hardware/gpu/amd.nix
+    ../../modules/development/default.nix
   ];
 
   filesystem.btrfs.enable = true;
