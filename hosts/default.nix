@@ -7,9 +7,6 @@ let
     home-manager.nixosModule
     hyprland.nixosModules.default
     nur.modules.nixos.default
-    {
-      users.mutableUsers = false;
-    }
     ({ username, ... }: {
       home-manager.enable = true;
       users.users.${username} = {

@@ -8,10 +8,6 @@
 
   filesystem.btrfs.enable = true;
 
-  # Users
-  age.secrets."${username}-password".file = ../../secrets/${username}-password.age;
-  users.users.${username}.hashedPasswordFile = config.age.secrets."${username}-password".path;
-
   # Home Manager
   home-manager.users.${username} = {
     imports = [
