@@ -1,6 +1,7 @@
-{ pkgs, inputs, username, ... }:
+{ pkgs, lib, inputs, username, ... }:
 let
   homeDirectory = "/home/${username}";
+  custom-extensions = import ./vscode.nix { inherit pkgs lib; };
 in
 {
   home = { inherit username homeDirectory; };
@@ -32,6 +33,22 @@ in
       nix-direnv.enable = true;
     };
     obs-studio.enable = true;
+    vscode = {
+      enable = true;
+      profiles.default = {
+        enableUpdateCheck = false;
+        extensions = with pkgs.vscode-extensions; with custom-extensions; [
+          rust-lang.rust-analyzer
+          ms-python.python
+          mads-hartmann.bash-ide-vscode
+          github.copilot
+          lakshits11.monokai-pirokai
+        ];
+        userSettings = {
+          "editor.fontFamily" = "'CaskaydiaCove Nerd Font', 'Droid Sans Mono', 'monospace', monospace";
+        };
+      };
+    };
   };
 }
 
