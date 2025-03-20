@@ -62,11 +62,6 @@ in {
             "extensions.formautofill.addresses.enabled" = false;
             "extensions.formautofill.creditCards.enabled" = false;
           };
-          extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-            bitwarden
-            ublock-origin
-            adaptive-tab-bar-colour
-          ];
         };
       };
 

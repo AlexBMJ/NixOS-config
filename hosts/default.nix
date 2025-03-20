@@ -4,7 +4,7 @@ let
     ../modules
     agenix.nixosModules.default
     disko.nixosModules.disko
-    home-manager.nixosModule
+    home-manager.nixosModules.default
     hyprland.nixosModules.default
     nur.modules.nixos.default
     ({ username, ... }: {

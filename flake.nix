@@ -27,7 +27,5 @@
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
     neovim.url = "github:Maroka-chan/nvim-config";
-    neovim.inputs.nixpkgs.follows = "nixpkgs-unstable";
-
   };
 }

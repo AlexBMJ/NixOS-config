@@ -19,8 +19,8 @@
   # Desktop Environment
   desktops.hyprland.enable = true;
   desktops.hyprland.extraConfig = ''
-    monitor=DP-1,2560x1440@60,0x0,1
-    monitor=DP-2,2560x1440@60,2560x0,1
+    monitor=DP-3,2560x1440@60,0x0,1
+    monitor=DP-5,2560x1440@60,2560x0,1
   '';
 
   # Git

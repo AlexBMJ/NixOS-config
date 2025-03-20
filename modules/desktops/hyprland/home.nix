@@ -24,7 +24,7 @@ in
   # GPG & Password Store
   programs.password-store.enable = true;
   programs.gpg.enable = true;
-  services.pass-secret-service.enable = true;
+  services.pass-secret-service.enable = false;
   services.gpg-agent = {
     enable = true;
     enableZshIntegration = true;
