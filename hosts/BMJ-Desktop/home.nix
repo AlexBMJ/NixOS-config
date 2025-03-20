@@ -31,6 +31,7 @@ in
     direnv = {
       enable = true;
       nix-direnv.enable = true;
+      silent = true;
     };
     obs-studio.enable = true;
     vscode = {
