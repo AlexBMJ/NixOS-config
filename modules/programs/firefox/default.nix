@@ -37,10 +37,15 @@ in {
 
             ## Enable Session Restore
             "browser.startup.page" = 3; # (resume previous session)
-            "privacy.clearOnShutdown_v2.historyFormDataAndDownloads" = false;
-
-            ## Keep Cookies
+            "privacy.sanitize.sanitizeOnShutdown" = false;
+            "services.sync.prefs.sync.privacy.sanitize.sanitizeOnShutdown" = false;
+            "services.sync.prefs.sync-seen.privacy.sanitize.sanitizeOnShutdown" = false;
+            "privacy.clearOnShutdown_v2.browsingHistoryAndDownloads" = false;
+            "privacy.clearOnShutdown_v2.cache" = false;
             "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
+            "privacy.clearOnShutdown_v2.downloads" = false;
+            "privacy.clearOnShutdown_v2.formdata" = false;
+            "privacy.clearOnShutdown_v2.historyFormDataAndDownloads" = false;
 
             ## Disable GMP (Gecko Media Plugins)
             "media.gmp-provider.enabled" = false;
@@ -56,7 +61,7 @@ in {
             "webgl.disabled" = true;
 
             ### Only give one history suggestion for autocompletion
-            "browser.urlbar.maxRichResults" = 1;
+            # "browser.urlbar.maxRichResults" = 1;
 
             ### Disable form autofill
             "extensions.formautofill.addresses.enabled" = false;
